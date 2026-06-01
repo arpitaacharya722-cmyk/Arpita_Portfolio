@@ -1,26 +1,34 @@
-<<<<<<< HEAD
+# Arpita Acharya — Personal Portfolio
 
-Arpita Acharya — Personal Portfolio
 A fully interactive personal portfolio website built with React, Vite, Tailwind CSS, and Framer Motion.
 
-Live features:
+**Live features:**
+- Smooth scroll-triggered animations throughout every section
+- Download CV button that generates and saves a formatted PDF in the browser
+- Contact form with real email delivery via EmailJS
+- Dark theme with an energetic orange accent, Outfit + Space Mono fonts
+- Fully responsive layout
 
-Smooth scroll-triggered animations throughout every section
-Download CV button that generates and saves a formatted PDF in the browser
-Contact form with real email delivery via EmailJS
-Dark theme with an energetic orange accent, Outfit + Space Mono fonts
-Fully responsive layout
-Tech Stack
-Category	Technology
-Framework	React 19 + Vite 7
-Styling	Tailwind CSS v4 + shadcn/ui components
-Animations	Framer Motion
-Icons	Lucide React + React Icons
-PDF Generation	jsPDF
-Email Delivery	EmailJS
-Routing	Wouter
-Language	TypeScript
-Project Structure
+---
+
+## Tech Stack
+
+| Category | Technology |
+|---|---|
+| Framework | React 19 + Vite 7 |
+| Styling | Tailwind CSS v4 + shadcn/ui components |
+| Animations | Framer Motion |
+| Icons | Lucide React + React Icons |
+| PDF Generation | jsPDF |
+| Email Delivery | EmailJS |
+| Routing | Wouter |
+| Language | TypeScript |
+
+---
+
+## Project Structure
+
+```
 src/
 ├── components/
 │   ├── Navbar.tsx        # Sticky nav with smooth scroll
@@ -43,95 +51,171 @@ src/
 ├── App.tsx               # Router setup
 ├── main.tsx              # Entry point
 └── index.css             # Theme variables + global styles
-Getting Started
-Prerequisites
-Make sure you have Node.js 18+ and npm installed.
+```
 
-Check: node --version and npm --version in your terminal.
+---
 
-Making your profile image public
-If you want your profile image to be visible to everyone who visits your deployed site, add a file named profile.jpg to the project's public/ folder and push it to GitHub. The site will serve that image at the root (/profile.jpg).
+## Getting Started
+
+### Prerequisites
+
+Make sure you have **Node.js 18+** and **npm** installed.
+
+Check: `node --version` and `npm --version` in your terminal.
+
+---
+
+## Making your profile image public
+
+If you want your profile image to be visible to everyone who visits your deployed site, add a file named `profile.jpg` to the project's `public/` folder and push it to GitHub. The site will serve it to all visitors.
 
 Quick options:
 
-Manually: copy your chosen image into artifacts/portfolio/public/profile.jpg, then run:
+- Manually: copy your chosen image into `artifacts/portfolio/public/profile.jpg`, then run:
+
+```bash
 cd artifacts/portfolio
 git add public/profile.jpg
 git commit -m "Add public profile image"
 git push
-Helper script: from the project root run:
+```
+
+- Helper script: from the project root run:
+
+```bash
 node scripts/save-profile.js C:\path\to\your\image.jpg
 git add public/profile.jpg
 git commit -m "Add public profile image"
 git push
-After pushing, the site will show /profile.jpg to all visitors.
+```
 
-Step 1 — Get the code
-Option A — Download the source:
+After pushing, the site will show `/profile.jpg` to all visitors.
 
-Download the project ZIP or clone the repository.
-Unzip or open it in your terminal.
-Navigate into the artifacts/portfolio folder.
-Option B — Clone via Git:
+---
 
+### Step 1 — Get the code
+
+**Option A — Download the source:**
+1. Download the project ZIP or clone the repository.
+2. Unzip or open it in your terminal.
+3. Navigate into the `artifacts/portfolio` folder.
+
+**Option B — Clone via Git:**
+```bash
 git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
 cd YOUR_REPO/artifacts/portfolio
-Step 2 — Open in VS Code
+```
+
+---
+
+### Step 2 — Open in VS Code
+
+```bash
 # From inside the artifacts/portfolio folder:
 code .
-Or open VS Code manually → File → Open Folder → select the artifacts/portfolio folder.
+```
 
-Step 3 — Install dependencies
+Or open VS Code manually → File → Open Folder → select the `artifacts/portfolio` folder.
+
+---
+
+### Step 3 — Install dependencies
+
+```bash
 npm install
-Step 4 — Set up environment variables
+```
+
+---
+
+### Step 4 — Set up environment variables
+
 Copy the example file and fill in your values:
 
+```bash
 cp .env.example .env
-Open .env — for basic local development you only need the defaults (already set). See the EmailJS section below if you want the contact form to send real emails.
+```
 
-Step 5 — Run the development server
+Open `.env` — for basic local development you only need the defaults (already set). See the EmailJS section below if you want the contact form to send real emails.
+
+---
+
+### Step 5 — Run the development server
+
+```bash
 npm run dev
-Open your browser at http://localhost:3000 — the site is live with hot reload.
+```
 
-Build for production
+Open your browser at **http://localhost:3000** — the site is live with hot reload.
+
+---
+
+### Build for production
+
+```bash
 npm run build
-Output goes into dist/public/. You can host it on GitHub Pages, Vercel, Netlify, or any static host.
+```
 
-Enabling the Contact Form (EmailJS)
-The contact form works out of the box in "mailto fallback" mode (opens your email app). To enable direct in-browser email delivery:
+Output goes into `dist/public/`. You can host it on GitHub Pages, Vercel, Netlify, or any static host.
 
-Sign up free at https://www.emailjs.com — 200 emails/month free
-Create an Email Service → connect your Gmail → copy the Service ID (e.g. service_abc123)
-Create an Email Template → use these variables in the template body:
-From: {{from_name}} <{{from_email}}>
-Subject: {{subject}}
+---
 
-{{message}}
-Copy the Template ID (e.g. template_abc123)
-Go to Account → copy your Public Key
-Add all three to your .env:
-VITE_EMAILJS_SERVICE_ID=service_abc123
-VITE_EMAILJS_TEMPLATE_ID=template_abc123
-VITE_EMAILJS_PUBLIC_KEY=your_public_key
-Restart the dev server — the form button changes to "Send Message"
-Deploying to GitHub Pages
-One-time setup
-Install the GitHub Pages plugin:
+## Enabling the Contact Form (EmailJS)
 
-npm install --save-dev gh-pages
-Add these scripts to package.json:
+The contact form works out of the box in "mailto fallback" mode (opens your email app). To enable **direct in-browser email delivery**:
 
-"predeploy": "npm run build",
-"deploy": "gh-pages -d dist/public"
-In vite.config.ts, set the base to your repo name:
+1. Sign up free at [https://www.emailjs.com](https://www.emailjs.com) — 200 emails/month free
+2. **Create an Email Service** → connect your Gmail → copy the **Service ID** (e.g. `service_abc123`)
+3. **Create an Email Template** → use these variables in the template body:
+   ```
+   From: {{from_name}} <{{from_email}}>
+   Subject: {{subject}}
+   
+   {{message}}
+   ```
+   Copy the **Template ID** (e.g. `template_abc123`)
+4. Go to **Account** → copy your **Public Key**
+5. Add all three to your `.env`:
+   ```
+   VITE_EMAILJS_SERVICE_ID=service_abc123
+   VITE_EMAILJS_TEMPLATE_ID=template_abc123
+   VITE_EMAILJS_PUBLIC_KEY=your_public_key
+   ```
+6. Restart the dev server — the form button changes to "Send Message"
 
-const basePath = process.env.BASE_PATH ?? "/your-repo-name/";
-Push the deploy:
+---
 
-npm run deploy
-Your site will be live at https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/
+## Deploying to GitHub Pages
 
-Pushing to GitHub
+### One-time setup
+
+1. Install the GitHub Pages plugin:
+   ```bash
+   npm install --save-dev gh-pages
+   ```
+
+2. Add these scripts to `package.json`:
+   ```json
+   "predeploy": "npm run build",
+   "deploy": "gh-pages -d dist/public"
+   ```
+
+3. In `vite.config.ts`, set the base to your repo name:
+   ```ts
+   const basePath = process.env.BASE_PATH ?? "/your-repo-name/";
+   ```
+
+4. Push the deploy:
+   ```bash
+   npm run deploy
+   ```
+
+Your site will be live at `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
+
+---
+
+## Pushing to GitHub
+
+```bash
 # Inside the artifacts/portfolio folder
 
 # 1. Initialize git (if not already done)
@@ -149,22 +233,32 @@ git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
 # 5. Push
 git branch -M main
 git push -u origin main
-Make sure .env is listed in .gitignore (it is by default) so your EmailJS keys are never committed.
+```
 
-Customisation
+> Make sure `.env` is listed in `.gitignore` (it is by default) so your EmailJS keys are never committed.
+
+---
+
+## Customisation
+
 All personal content lives in the component files — no config file needed:
 
-What to change	Where
-Name, bio, objective	src/components/Hero.tsx, src/components/About.tsx
-Skills list	src/components/Skills.tsx
-Projects	src/components/Projects.tsx
-Education & certifications	src/components/Education.tsx
-Contact info	src/components/Contact.tsx
-CV PDF content	src/lib/generateCV.ts
-Colours & fonts	src/index.css (CSS custom properties)
-License
+| What to change | Where |
+|---|---|
+| Name, bio, objective | `src/components/Hero.tsx`, `src/components/About.tsx` |
+| Skills list | `src/components/Skills.tsx` |
+| Projects | `src/components/Projects.tsx` |
+| Education & certifications | `src/components/Education.tsx` |
+| Contact info | `src/components/Contact.tsx` |
+| CV PDF content | `src/lib/generateCV.ts` |
+| Colours & fonts | `src/index.css` (CSS custom properties) |
+
+---
+
+## License
+
 This project is personal and not licensed for redistribution. Feel free to use it as inspiration for your own portfolio.
 
-Built with React + Vite
-arpita-portfolio
-2bd22f4e573c031eea994a37125fe67be4dfb1bb
+---
+
+*Built with React + Vite*
